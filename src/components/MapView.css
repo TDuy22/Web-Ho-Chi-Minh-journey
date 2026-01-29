@@ -64,8 +64,8 @@
 .location-card {
   position: absolute;
   top: 130px;
-  left: 20px;
-  width: 360px;
+  left: 30px;
+  width: 480px;
   max-height: calc(100vh - 250px);
   background: linear-gradient(145deg, 
     rgba(20, 20, 30, 0.98) 0%, 

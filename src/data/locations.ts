@@ -1,4 +1,3 @@
-// Dữ liệu các địa điểm Bác Hồ đã đi qua trong hành trình tìm đường cứu nước
 export interface Location {
   id: number;
   name: string;
@@ -11,6 +10,7 @@ export interface Location {
   };
   description: string;
   image: string;
+  imageCaption?: string;
   events: string[];
 }
 
@@ -20,188 +20,309 @@ export const locations: Location[] = [
     name: "Bến cảng Nhà Rồng",
     country: "Việt Nam",
     year: 1911,
-    coordinates: { lat: 10.7679, lng: 106.7052 },
+    coordinates: { lat: 10.7679, lng: 106.7052 }, // Bảo tàng Hồ Chí Minh - Chi nhánh TP.HCM
     description:
-      "Nơi khởi đầu của huyền thoại. Ngày 5/6/1911, chàng thanh niên Nguyễn Tất Thành (Văn Ba) bước lên con tàu Đô đốc Latouche-Tréville. Trong túi không có tiền, chỉ có đôi bàn tay trắng và một khát vọng cháy bỏng: 'Tự do cho đồng bào tôi, độc lập cho Tổ quốc tôi'.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dragon_Wharf.jpg/1280px-Dragon_Wharf.jpg",
+      "Ngày 5/6/1911, người thanh niên Nguyễn Tất Thành (Văn Ba) bước lên con tàu Amiral Latouche-Tréville. Chấp nhận làm phụ bếp - công việc nặng nhọc nhất để đổi lấy cơ hội ra đi, Người mang theo hoài bão: 'Tôi muốn đi ra nước ngoài xem nước Pháp và các nước khác làm thế nào rồi trở về giúp đồng bào'.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Amiral_Latouche-Tr%C3%A9ville.jpg",
+    imageCaption: "Tàu Amiral Latouche-Tréville thuộc hãng Chargeurs Réunis",
     events: [
-      "Xin làm phụ bếp trên tàu buôn Amiral Latouche Tréville",
-      "Rời Tổ quốc, bắt đầu hành trình 30 năm bôn ba",
-      "Câu nói nổi tiếng: 'Tôi muốn đi ra ngoài, xem nước Pháp và các nước khác...'",
+      "5/6/1911: Rời Tổ quốc từ Bến Nhà Rồng",
+      "Làm phụ bếp, khuân than, cọ rửa boong tàu",
+      "Quyết định lịch sử sau khi suy ngẫm về sự thất bại của các bậc tiền bối",
     ],
   },
   {
     id: 2,
-    name: "Marseille",
+    name: "Cảng Marseille",
     country: "Pháp",
     year: 1911,
     coordinates: { lat: 43.2965, lng: 5.3698 },
     description:
-      "Điểm chạm ngõ phương Tây đầu tiên. Tại cảng Marseille, Bác nhận thấy một nghịch lý: Ở Pháp cũng có người nghèo khổ như ở Việt Nam. Tại đây, Bác đã viết lá đơn đầu tiên gửi Tổng thống Pháp xin vào học Trường Thuộc địa (nhưng bị từ chối).",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Marseille_-_Pair_of_Quayside_Cranes.jpg/1280px-Marseille_-_Pair_of_Quayside_Cranes.jpg",
+      "Tháng 7/1911, đặt chân lên đất Pháp, Người chứng kiến một nghịch lý đảo lộn nhận thức: Ở chính quốc cũng có những người nghèo khổ, rách rưới không khác gì dân thuộc địa. Câu nói nổi tiếng 'Ở đâu cũng có người nghèo và người giàu, người áp bức và người bị áp bức' hình thành từ đây.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Marseille_Vieux_Port_1900.jpg",
+    imageCaption: "Cảng Marseille đầu thế kỷ 20",
     events: [
-      "Chứng kiến cảnh người nghèo khổ ngay tại chính quốc",
-      "Viết thư gửi Tổng thống Pháp (15/9/1911)",
-      "Gặp gỡ những thủy thủ từ các thuộc địa khác",
+      "Quan sát đời sống người lao động Pháp",
+      "Nhận thức lại khái niệm 'người Pháp' ở chính quốc và thuộc địa",
     ],
   },
   {
     id: 3,
-    name: "Le Havre & Vòng quanh Châu Phi",
-    country: "Pháp & Quốc tế",
+    name: "Le Havre",
+    country: "Pháp",
     year: 1911,
-    endYear: 1912,
-    coordinates: { lat: 49.4944, lng: 0.1079 }, // Đại diện Le Havre
+    coordinates: { lat: 49.4944, lng: 0.1079 },
     description:
-      "Trong những năm tháng lênh đênh trên biển làm thuê cho hãng vận tải Hợp Nhất (Chargeurs Réunis), Bác đã đi vòng quanh châu Phi (Dakar, Senegal...) và nhận ra rằng: Dù màu da có khác nhau, trên đời này chỉ có hai giống người: giống người bóc lột và giống người bị bóc lột.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Le_Havre_port_01.jpg/1280px-Le_Havre_port_01.jpg",
+      "Tại cảng Le Havre, Người vừa làm việc (dọn tàu, làm vườn) vừa nỗ lực tiếp cận nền giáo dục phương Tây chính thống. Người đã viết thư xin vào học Trường Thuộc địa (École Coloniale) nhưng bị từ chối, buộc phải chuyển hướng sang con đường tự học trong phong trào công nhân.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Le_Havre_-_Bassin_du_Roi_-_LL.jpg",
+    imageCaption: "Cảng Le Havre - Nơi Người từng làm việc",
     events: [
-      "Làm vườn tại Saint-Adresse (gần Le Havre)",
-      "Đi qua các thuộc địa châu Phi (Senegal, Congo...)",
-      "Hình thành tư tưởng đoàn kết các dân tộc thuộc địa",
+      "Làm công nhân dọn tàu và làm vườn tại Sainte-Adresse",
+      "9/1911: Viết thư gửi Tổng thống Pháp xin đi học",
+      "Bắt đầu hành trình tự học không ngừng nghỉ",
     ],
   },
   {
     id: 4,
-    name: "New York & Boston",
+    name: "New York & Brooklyn",
     country: "Hoa Kỳ",
     year: 1912,
-    endYear: 1913,
-    coordinates: { lat: 40.7128, lng: -74.006 },
+    coordinates: { lat: 40.7128, lng: -74.0060 },
     description:
-      "Đến Mỹ - xứ sở của Tượng Nữ thần Tự do. Bác vừa làm thuê (làm bánh, cào tuyết), vừa dành thời gian đến thư viện nghiên cứu Tuyên ngôn Độc lập 1776. Bác khâm phục tinh thần cách mạng Mỹ nhưng cũng nhìn thấy mặt trái của chủ nghĩa tư bản qua khu ổ chuột Harlem.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabyte.jpg/1280px-New_york_times_square-terabyte.jpg",
+      "Năm 1912, Người đến New York, sống tại khu Brooklyn và thường ghé thăm khu Harlem. Chứng kiến sự phân biệt chủng tộc tàn bạo và sự trỗi dậy của công nghiệp Mỹ, Người hình thành sự đồng cảm sâu sắc với người da đen - cơ sở cho các bài viết sắc bén sau này về vấn đề chủng tộc.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Mulberry_Street_NYC_c1900_LOC_3g04637u.jpg",
+    imageCaption: "Đường phố New York đầu thế kỷ 20",
     events: [
-      "Làm thợ bánh tại khách sạn Omni Parker House (Boston)",
-      "Nghiên cứu Tuyên ngôn Độc lập 1776",
-      "Tham gia các cuộc mít tinh của người da đen ở Brooklyn",
+      "Làm thuê tại Brooklyn, quan sát đời sống công nhân Mỹ",
+      "Tìm hiểu về phong trào của người da đen tại Harlem",
+      "Nhận diện bộ mặt thật của 'Tượng Nữ thần Tự do'",
     ],
   },
   {
     id: 5,
-    name: "London",
-    country: "Anh",
-    year: 1913,
-    endYear: 1917,
-    coordinates: { lat: 51.5074, lng: -0.1278 },
+    name: "Boston (Omni Parker House)",
+    country: "Hoa Kỳ",
+    year: 1912,
+    endYear: 1913,
+    coordinates: { lat: 42.3584, lng: -71.0601 }, // 60 School Street
     description:
-      "Những năm tháng cực khổ trong sương mù London. Bác làm nghề cào tuyết trường học, đốt lò, rồi phụ bếp tại khách sạn Carlton nổi tiếng (nơi Bác giữ lại thức ăn thừa của khách để chia cho người nghèo). Đây là thời gian Bác học tiếng Anh và tiếp cận tư tưởng Marx lần đầu qua báo chí.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/London_Skyline_%28125508655%29.jpeg/1280px-London_Skyline_%28125508655%29.jpeg",
+      "Tại khách sạn danh tiếng Omni Parker House, Bác làm thợ làm bánh (baker). Thời gian rảnh, Người đến Thư viện Công cộng Boston nghiên cứu Tuyên ngôn Độc lập 1776. Tư tưởng về 'quyền sống, quyền mưu cầu hạnh phúc' đã thẩm thấu vào tư duy chính trị của Người tại chính cái nôi của Cách mạng Mỹ.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Parker_House%2C_Boston_%281866%29.jpg",
+    imageCaption: "Khách sạn Parker House - Nơi còn lưu giữ chiếc bàn làm bánh của Bác",
     events: [
-      "Làm phụ bếp cho vua đầu bếp Escoffier tại khách sạn Carlton",
-      "Gia nhập Công đoàn Lao động hải ngoại",
-      "Rèn luyện tiếng Anh qua việc đọc báo hàng ngày",
+      "Làm thợ bánh tại bộ phận Bakeshop (làm bánh Boston Cream Pie)",
+      "Nghiên cứu lịch sử và Hiến pháp Mỹ tại thư viện",
+      "Tiếp thu giá trị tiến bộ của tư tưởng dân chủ tư sản",
     ],
   },
   {
     id: 6,
-    name: "Paris",
-    country: "Pháp",
-    year: 1917,
-    endYear: 1923,
-    coordinates: { lat: 48.8566, lng: 2.3522 },
+    name: "London (Carlton Hotel)",
+    country: "Anh",
+    year: 1913,
+    coordinates: { lat: 51.5085, lng: -0.1309 }, // Vị trí New Zealand House (nền cũ Carlton Hotel)
     description:
-      "Thời kỳ hoạt động sôi nổi nhất với tên gọi Nguyễn Ái Quốc. Tại căn nhà số 9 ngõ Compoint, Bác đã viết nên 'Bản án chế độ thực dân Pháp'. Sự kiện chấn động nhất là khi Bác đọc 'Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và thuộc địa' của Lenin - tìm thấy con đường giải phóng dân tộc.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/800px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+      "Tại khách sạn Carlton sang trọng, Người làm phụ bếp dưới quyền 'Vua đầu bếp' Escoffier. Câu chuyện Người giữ lại thức ăn thừa sạch để chia cho người nghèo đã khiến Escoffier cảm động. Đây là giai đoạn Người rèn luyện tiếng Anh và lần đầu tiên đọc tin tức về phong trào cộng sản.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Carlton_hotel_1908_05209.jpg",
+    imageCaption: "Khách sạn Carlton (Hiện có biển xanh Blue Plaque tưởng niệm)",
     events: [
-      "Gửi Yêu sách 8 điểm tới Hội nghị Versailles (1919)",
-      "Đọc Luận cương của Lenin (7/1920) - 'Đây là cái cần thiết cho chúng ta!'",
-      "Bỏ phiếu tán thành Quốc tế III, sáng lập ĐCS Pháp (Tours, 12/1920)",
-      "Chủ bút báo Le Paria (Người cùng khổ)",
-      "Làm nghề thợ ảnh, vẽ đồ cổ giả để mưu sinh",
+      "Làm phụ bếp bánh (pastry) cho Escoffier",
+      "Gia nhập Công đoàn lao động hải ngoại",
+      "Học tiếng Anh qua báo chí để đọc tài liệu chính trị",
     ],
   },
   {
     id: 7,
-    name: "Petrograd & Moscow",
-    country: "Liên Xô",
-    year: 1923,
-    endYear: 1924,
-    coordinates: { lat: 55.7558, lng: 37.6173 },
+    name: "London (Drayton Court)",
+    country: "Anh",
+    year: 1914,
+    coordinates: { lat: 51.5136, lng: -0.3186 }, // Drayton Court Hotel, West Ealing
     description:
-      "Đặt chân đến quê hương Cách mạng Tháng Mười giữa mùa đông khắc nghiệt. Dù lỡ hẹn không được gặp Lenin (Người vừa mất), Nguyễn Ái Quốc đã biến đau thương thành hành động, tích cực hoạt động trong Quốc tế Cộng sản để gắn phong trào cách mạng Việt Nam với thế giới.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Red_Square%2C_Moscow.jpg/1280px-Red_Square%2C_Moscow.jpg",
+      "Rời trung tâm London, Người đến làm việc tại khách sạn Drayton Court ở khu West Ealing. Trải qua những mùa đông khắc nghiệt với nghề cào tuyết và đốt lò, Người thấu hiểu tận cùng nỗi khổ của giai cấp công nhân tại đất nước tư bản phát triển nhất lúc bấy giờ.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Drayton_Court_Hotel_-_geograph.org.uk_-_1164627.jpg",
+    imageCaption: "Khách sạn Drayton Court (West Ealing)",
     events: [
-      "Viết bài báo thương tiếc khi Lenin qua đời (1/1924)",
-      "Học tập tại Đại học Phương Đông (KUTV)",
-      "Dự Đại hội V Quốc tế Cộng sản - Tham luận về vấn đề nông dân",
-      "Hoàn thiện lý luận về con đường cách mạng vô sản",
+      "Làm việc lao động chân tay nặng nhọc",
+      "Rèn luyện ý chí trong môi trường khắc nghiệt",
+      "Kết nối với phong trào công nhân Anh",
     ],
   },
   {
     id: 8,
-    name: "Quảng Châu",
-    country: "Trung Quốc",
-    year: 1924,
-    endYear: 1927,
-    coordinates: { lat: 23.1291, lng: 113.2644 },
+    name: "Paris (Yêu sách Versailles)",
+    country: "Pháp",
+    year: 1919,
+    coordinates: { lat: 48.8049, lng: 2.1204 }, // Cung điện Versailles
     description:
-      "Dưới danh nghĩa cố vấn Lý Thụy, Bác về Quảng Châu tập hợp những thanh niên yêu nước tâm huyết. Tại ngôi nhà số 13 đường Văn Minh, 'Đường Kách mệnh' ra đời, trở thành cuốn cẩm nang gối đầu giường cho thế hệ cách mạng đầu tiên của Việt Nam.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Guangzhou_dusk_11-5-2008.jpg/1280px-Guangzhou_dusk_11-5-2008.jpg",
+      "Ngày 18/6/1919, Nguyễn Ái Quốc gửi 'Bản Yêu sách của nhân dân An Nam' tới Hội nghị Versailles. Dù không được chấp nhận, đây là 'quả bom chính trị' đầu tiên đưa vấn đề dân tộc Việt Nam ra quốc tế, khẳng định quyền bình đẳng pháp lý và tự do dân chủ.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/99/Ho_Chi_Minh_1921.jpg",
+    imageCaption: "Nguyễn Ái Quốc tại Pháp (1921)",
     events: [
-      "Thành lập Hội Việt Nam Cách mạng Thanh niên (6/1925)",
-      "Mở các lớp huấn luyện chính trị đặc biệt",
-      "Ra báo Thanh Niên (21/6/1925)",
-      "Soạn thảo tác phẩm 'Đường Kách mệnh'",
+      "Gửi Yêu sách 8 điểm đòi quyền tự quyết",
+      "Sử dụng tên Nguyễn Ái Quốc công khai",
+      "Lan tỏa ảnh hưởng trong cộng đồng người Việt tại Pháp",
     ],
   },
   {
     id: 9,
-    name: "Udon Thani (Xiêm)",
-    country: "Thái Lan",
-    year: 1928,
-    endYear: 1929,
-    coordinates: { lat: 17.4157, lng: 102.7872 },
+    name: "Tours (Bước ngoặt Lênin)",
+    country: "Pháp",
+    year: 1920,
+    coordinates: { lat: 47.3941, lng: 0.6848 }, // Salle du Manège
     description:
-      "Một giai đoạn ẩn mật nhưng quan trọng. Với bí danh 'Thầu Chín', Bác hòa mình vào đời sống bà con Việt kiều tại bản Nong Bua. Người cùng dân cày ruộng, đắp đường, xây chùa, qua đó bí mật tuyên truyền lòng yêu nước và tổ chức các cơ sở cách mạng.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Udon_Thani_Museum.jpg/1280px-Udon_Thani_Museum.jpg", // Ảnh minh họa bảo tàng hoặc cảnh Thái Lan
+      "Tháng 12/1920, tại Đại hội Tours, Nguyễn Ái Quốc bỏ phiếu gia nhập Quốc tế III, trở thành một trong những người sáng lập ĐCS Pháp. Trước đó, khi đọc Luận cương của Lênin, Người đã thốt lên: 'Hỡi đồng bào bị đọa đày đau khổ! Đây là cái cần thiết cho chúng ta...'.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Nguyen_Ai_Quoc_at_Tours_Congress.jpg",
+    imageCaption: "Nguyễn Ái Quốc phát biểu tại Đại hội Tours",
     events: [
-      "Sử dụng bí danh Thầu Chín",
-      "Xây dựng cơ sở tại bản Nong Bua và Nachok",
-      "Dịch sách 'Nhân loại tiến hóa sử' để tuyên truyền",
-      "Vận động bà con Việt kiều đoàn kết hướng về Tổ quốc",
+      "Dự Đại hội 18 Đảng Xã hội Pháp",
+      "Bỏ phiếu tán thành Quốc tế Cộng sản",
+      "Chuyển biến dứt khoát từ chủ nghĩa yêu nước sang chủ nghĩa cộng sản",
     ],
   },
   {
     id: 10,
-    name: "Hồng Kông",
-    country: "Trung Quốc (Thuộc Anh)",
-    year: 1930,
-    coordinates: { lat: 22.3193, lng: 114.1694 },
+    name: "Paris (Ngõ Compoint)",
+    country: "Pháp",
+    year: 1921,
+    endYear: 1923,
+    coordinates: { lat: 48.8953, lng: 2.3276 }, // 9 Impasse Compoint
     description:
-      "Thời khắc lịch sử trọng đại! Vào mùa xuân năm 1930, tại sân vận động Cửu Long, Nguyễn Ái Quốc với uy tín tuyệt đối đã thống nhất 3 tổ chức cộng sản thành một Đảng duy nhất: Đảng Cộng sản Việt Nam. Chấm dứt thời kỳ khủng hoảng về đường lối cứu nước.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Hong_Kong_Night_Skyline.jpg/1280px-Hong_Kong_Night_Skyline.jpg",
+      "Tại căn phòng nhỏ số 9 ngõ Compoint, Người cùng các đồng chí thành lập Hội Liên hiệp Thuộc địa và ra báo 'Le Paria' (Người cùng khổ). Tờ báo trở thành vũ khí lý luận sắc bén, liên kết các dân tộc bị áp bức (Bắc Phi, Tây Phi, Đông Dương) vào một mặt trận chung.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Le_Paria_No_1.jpg/800px-Le_Paria_No_1.jpg",
+    imageCaption: "Báo Le Paria do Người sáng lập",
     events: [
-      "Chủ trì Hội nghị thành lập Đảng (3/2 - 7/2/1930)",
-      "Thông qua Cương lĩnh chính trị đầu tiên",
-      "Đặt nền móng vững chắc cho thắng lợi của Cách mạng Việt Nam",
-      "Bị thực dân Anh bắt giam (Vụ án Tống Văn Sơ)",
+      "Sống và làm việc tại số 9 ngõ Compoint",
+      "Viết bài, vẽ tranh châm biếm, phát hành báo Le Paria",
+      "Viết tác phẩm 'Bản án chế độ thực dân Pháp'",
     ],
   },
   {
     id: 11,
-    name: "Pác Bó",
+    name: "Moscow (Đại học Phương Đông)",
+    country: "Liên Xô",
+    year: 1923,
+    endYear: 1924,
+    coordinates: { lat: 55.7607, lng: 37.6095 }, // Khách sạn Lux (Tverskaya St) & KUTV
+    description:
+      "Đến cái nôi của cách mạng thế giới, Người ở tại Khách sạn Lux và học tại Đại học Phương Đông (KUTV). Tại Đại hội V Quốc tế Cộng sản, Người ví chủ nghĩa đế quốc như con đỉa hai vòi và khẳng định vai trò chủ động của cách mạng thuộc địa.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Lenin_School_Moscow.jpg",
+    imageCaption: "Trường Quốc tế Lênin (Ảnh tư liệu minh họa)",
+    events: [
+      "Học tập lý luận Mác - Lênin hệ thống tại KUTV",
+      "Tham luận tại Đại hội V Quốc tế Cộng sản",
+      "Gặp gỡ các lãnh tụ cộng sản quốc tế",
+    ],
+  },
+  {
+    id: 12,
+    name: "Quảng Châu (Đường Văn Minh)",
+    country: "Trung Quốc",
+    year: 1924,
+    endYear: 1927,
+    coordinates: { lat: 23.1275, lng: 113.2714 }, // 13 Wenming Road
+    description:
+      "Tại số 13 đường Văn Minh, Nguyễn Ái Quốc (Lý Thụy) mở lớp huấn luyện chính trị đặc biệt, đào tạo những 'hạt giống đỏ' đầu tiên (Trần Phú, Lê Hồng Phong...). Các bài giảng tại đây tập hợp thành tác phẩm 'Đường Kách mệnh' - cuốn sách giáo khoa lý luận đầu tiên của cách mạng VN.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Canton_bund.jpg",
+    imageCaption: "Một góc Quảng Châu xưa",
+    events: [
+      "Thành lập Hội Việt Nam Cách mạng Thanh niên",
+      "Giảng dạy tại các lớp huấn luyện chính trị",
+      "Liên kết với Trường quân sự Hoàng Phố để đào tạo quân sự",
+    ],
+  },
+  {
+    id: 13,
+    name: "Udon Thani (Bản Đông)",
+    country: "Thái Lan",
+    year: 1928,
+    coordinates: { lat: 17.4264, lng: 102.7663 }, // Khu vực Bản Noong Ôn
+    description:
+      "Với bí danh Thầu Chín, Người thực hiện chủ trương 'vô sản hóa' tại bản Noong Ôn. Người cùng dân đào giếng, vỡ đất, dạy chữ Quốc ngữ. Tại đây, tư tưởng đại đoàn kết được xây dựng vững chắc trong cộng đồng Việt kiều.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Ho_Chi_Minh_House_Nakhon_Phanom.jpg/1280px-Ho_Chi_Minh_House_Nakhon_Phanom.jpg",
+    imageCaption: "Di tích nhà Bác Hồ tại Thái Lan",
+    events: [
+      "Lấy bí danh Thầu Chín",
+      "Cùng dân làm ruộng, đào giếng",
+      "Xây dựng cơ sở cách mạng bí mật",
+    ],
+  },
+  {
+    id: 14,
+    name: "Nakhon Phanom (Bản Nachok)",
+    country: "Thái Lan",
+    year: 1929,
+    coordinates: { lat: 17.4000, lng: 104.7833 }, // Bản Mạy
+    description:
+      "Tại Bản Nachok bên bờ sông Mekong, đối diện với Lào, Thầu Chín xây dựng trạm liên lạc chiến lược để kết nối với trong nước. Ngôi nhà gỗ đơn sơ tại đây là minh chứng cho những năm tháng hoạt động gian khổ nhưng thắm đượm tình quân dân.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Mekong_River_Nakhon_Phanom.jpg",
+    imageCaption: "Sông Mekong đoạn qua Nakhon Phanom",
+    events: [
+      "Mở rộng mạng lưới cơ sở đảng sang Lào",
+      "Dịch sách, viết tài liệu tuyên truyền",
+      "Chuẩn bị điều kiện để tiến tới thành lập Đảng",
+    ],
+  },
+  {
+    id: 15,
+    name: "Hương Cảng (Thành lập Đảng)",
+    country: "Hương Cảng",
+    year: 1930,
+    coordinates: { lat: 22.3193, lng: 114.1694 }, // Cửu Long (Kowloon)
+    description:
+      "Mùa xuân 1930, tại Cửu Long, Nguyễn Ái Quốc chủ trì Hội nghị hợp nhất lịch sử, thành lập Đảng Cộng sản Việt Nam. Sự kiện này chấm dứt thời kỳ khủng hoảng đường lối, mở ra kỷ nguyên mới cho dân tộc với Cương lĩnh chính trị đầu tiên đúng đắn.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Queens_Road_Central_1930s.jpg",
+    imageCaption: "Hương Cảng những năm 1930",
+    events: [
+      "3/2/1930: Thành lập Đảng Cộng sản Việt Nam",
+      "Thông qua Chính cương vắn tắt, Sách lược vắn tắt",
+      "Soạn thảo Lời kêu gọi nhân dịp thành lập Đảng",
+    ],
+  },
+  {
+    id: 16,
+    name: "Nhà tù Victoria",
+    country: "Hương Cảng",
+    year: 1931,
+    endYear: 1933,
+    coordinates: { lat: 22.2819, lng: 114.1539 }, // 16 Old Bailey Street
+    description:
+      "Bị thực dân Anh bắt giam (Vụ án Tống Văn Sơ). Tại nhà tù Victoria, Người đã kiên cường đấu tranh. Nhờ sự giúp đỡ của luật sư Loseby và gia đình, Người thắng kiện, thoát khỏi nhà tù và thực hiện cuộc 'đào thoát' ngoạn mục để trở lại Liên Xô.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Victoria_Prison_Compound.jpg",
+    imageCaption: "Di tích Nhà tù Victoria ngày nay",
+    events: [
+      "Bị giam giữ với số tù 611",
+      "Cuộc chiến pháp lý của luật sư Loseby",
+      "Cải trang thành thương nhân để trốn thoát khỏi sự truy lùng",
+    ],
+  },
+  {
+    id: 17,
+    name: "Côn Minh (Tiền trạm)",
+    country: "Trung Quốc",
+    year: 1940,
+    coordinates: { lat: 25.0453, lng: 102.7090 }, // 89-91 Hoa Sơn Nam
+    description:
+      "Tại số 89-91 đường Hoa Sơn Nam (Côn Minh), Nguyễn Ái Quốc (Hồ Quang) gặp gỡ các đồng chí Phạm Văn Đồng, Võ Nguyên Giáp. Đây là 'trạm tiền tiêu' để bàn bạc kế hoạch xây dựng căn cứ địa, chuẩn bị trực tiếp đưa phong trào về nước.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Kunming_old_photo.jpg",
+    imageCaption: "Côn Minh (Vân Nam) thời chiến",
+    events: [
+      "Gặp gỡ, chỉ đạo các đồng chí cốt cán",
+      "Sử dụng bí danh Hồ Quang, thiếu tá Bát lộ quân",
+      "Quyết định chọn Cao Bằng làm căn cứ địa",
+    ],
+  },
+  {
+    id: 18,
+    name: "Tịnh Tây (Biên giới)",
+    country: "Trung Quốc",
+    year: 1940,
+    endYear: 1941,
+    coordinates: { lat: 23.1333, lng: 106.4167 },
+    description:
+      "Tại các hang động và làng bản ở Tịnh Tây (sát biên giới Cao Bằng), Người mở lớp huấn luyện chính trị ngắn ngày cho cán bộ địa phương. Công tác chuẩn bị nhân sự và hậu cần cho việc vượt biên được thực hiện gấp rút.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Jingxi_Guangxi.jpg/800px-Jingxi_Guangxi.jpg",
+    imageCaption: "Vùng biên giới Tịnh Tây",
+    events: [
+      "Huấn luyện cán bộ về công tác bí mật",
+      "Nhận định: 'Việc về nước là cần thiết và cấp bách'",
+      "Khảo sát lộ trình bí mật vượt biên",
+    ],
+  },
+  {
+    id: 19,
+    name: "Pác Bó (Cột mốc 108)",
     country: "Việt Nam",
     year: 1941,
-    coordinates: { lat: 22.8372, lng: 106.0689 },
+    coordinates: { lat: 22.9250, lng: 106.0594 }, // Mốc 108 (nay là 675)
     description:
-      "Sáng ngày 28/1/1941 (mùng 2 Tết), Bác bước qua cột mốc 108 biên giới Việt-Trung, cúi xuống hôn lên hòn đất Tổ quốc sau 30 năm xa cách. 'Bác đã về đây, Tổ quốc ơi!'. Tại hang Cốc Bó, Người ăn cháo bẹ, măng trúc, dịch sử Đảng và trực tiếp lãnh đạo cao trào kháng Nhật cứu nước.",
+      "Ngày 28/1/1941, Bác về nước qua cột mốc 108. Khoảnh khắc Người cúi hôn hòn đất Tổ quốc là biểu tượng thiêng liêng. Tại hang Cốc Bó, Người đặt tên suối Lê-nin, núi Các Mác, triệu tập Hội nghị TW 8 thành lập Mặt trận Việt Minh, thổi bùng ngọn lửa giải phóng.",
     image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Pac_Bo_Cave.jpg",
+    imageCaption: "Suối Lê-nin, hang Pác Bó",
     events: [
-      "Về nước sau 30 năm bôn ba (28/1/1941)",
-      "Chọn hang Pác Bó làm đại bản doanh",
-      "Triệu tập Hội nghị Trung ương 8 (5/1941)",
+      "28/1/1941: Vượt biên giới về nước sau 30 năm",
+      "5/1941: Chủ trì Hội nghị Trung ương 8",
       "Thành lập Mặt trận Việt Minh",
-      "Viết bài thơ 'Hòn đá to', 'Lịch sử nước ta'",
+      "Soạn thảo 'Lịch sử nước ta'",
     ],
   },
 ];
-
-// Thông tin timeline để hiển thị
-export const timelineInfo = {
-  startYear: 1911,
-  endYear: 1941,
-  totalYears: 30,
-  title: "Hành trình 30 năm tìm hình của Nước",
-  subtitle: "Từ Văn Ba đến Hồ Chí Minh - Một chặng đường lịch sử"
-};

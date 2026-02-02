@@ -1,4 +1,4 @@
-import { Location } from "../data/locations";
+import type { Location } from "../data/locations";
 import "./Timeline.css";
 
 interface TimelineProps {

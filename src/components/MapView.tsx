@@ -195,7 +195,7 @@ const MapView = () => {
           setIsAutoPlaying(false);
           setCurrentAutoPlayIndex(0);
         }
-      }, 5000);
+      }, 15000);
     }
 
     return () => {

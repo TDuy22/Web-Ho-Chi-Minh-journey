@@ -93,7 +93,7 @@ function LandingPage({ onEnter }: LandingPageProps) {
         {/* Footer */}
         <footer className="landing-footer">
           <p>Dự án học phần HCM202 - Tư tưởng Hồ Chí Minh</p>
-          <p className="team-info">Nhóm thực hiện | 2024</p>
+          <p className="team-info">Nhóm 8 | 2026</p>
         </footer>
       </div>
     </div>
